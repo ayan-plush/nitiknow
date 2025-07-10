@@ -1,13 +1,25 @@
 import React, { useEffect, useState } from 'react'
 import Header from '../components/Header'
 import { useDispatch, useSelector } from 'react-redux'
-import { get_headlines } from '../store/Reducers/geoReducer'
+import { get_assembly, get_constituency, get_headlines, get_loksabha_elective } from '../store/Reducers/geoReducer'
 
 const MyMinister = () => {
     const count = 1
     const [tx,setTx] = useState(0)
-    const {constituency, assembly,lok_minister,articles} = useSelector(state => state.geo)
+    const {constituency, assembly,lok_minister,articles,coordinates} = useSelector(state => state.geo)
     const dispatch = useDispatch();
+    useEffect(()=>{
+        if(!constituency?.PC_NAME||!assembly?.AC_NAME){
+            dispatch(get_constituency({ lat: coordinates.lat, lon: coordinates.lon }))
+            dispatch(get_assembly({ lat: coordinates.lat, lon: coordinates.lon }))
+        }
+    },[coordinates])
+    useEffect(()=>{
+        if(constituency.PC_NAME){
+        dispatch(get_loksabha_elective({pc: constituency.PC_NAME}))
+        }
+    },[constituency])
+    
     useEffect(()=>{
         if(lok_minister.name){
         dispatch(get_headlines({ministers: [lok_minister?.name.toString().toLowerCase().trim().replace(/\s+/g, '-').replace(/[^\w\-]+/g, '').replace(/\-\-+/g, '-')]}))
@@ -84,9 +96,9 @@ const MyMinister = () => {
                                     </div>
                                     <div className='border-1 border-[#ffffffb0] rounded-md h-full w-full max-h-[600px] overflow-auto'>
                                         {
-                                            articles[0].title
+                                            articles[0]?.title
                                         }
-                                        <img src={`${articles[0].img}`} />
+                                        <img src={`${articles[0]?.img}`} />
                                     </div>                                    
                                 </div>
                             </div>

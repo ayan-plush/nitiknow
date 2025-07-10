@@ -75,6 +75,7 @@ export const geoReducer = createSlice({
         constituency: [],
         assembly: [],
         lok_minister: [],
+        coordinates: {},
         articles: [],
     },
     reducers : {
@@ -82,6 +83,10 @@ export const geoReducer = createSlice({
         messageClear : (state,_)=>{
             state.errorMessage=""
             state.successMessage=""
+        },
+        setCoordinates: (state, action) => {
+            console.log('set coordinates reached')
+            state.coordinates = action.payload;
         }
 
     },
@@ -126,5 +131,5 @@ export const geoReducer = createSlice({
          })
     }
 })
-export const {messageClear} = geoReducer.actions
+export const {messageClear,setCoordinates} = geoReducer.actions
 export default geoReducer.reducer

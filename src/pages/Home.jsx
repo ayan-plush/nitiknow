@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from 'react'
-import { get_assembly, get_constituency, get_headlines, get_loksabha_elective } from '../store/Reducers/geoReducer';
+import { get_assembly, get_constituency, get_headlines, get_loksabha_elective, setCoordinates } from '../store/Reducers/geoReducer';
 import { useDispatch, useSelector } from 'react-redux';
 import Header from '../components/Header';
 
@@ -17,7 +17,7 @@ function Home() {
         e.preventDefault();
         setPc(pcin);
     }
-    console.log("Home rendered")
+    // console.log("Home rendered")
     useEffect(() => {
       const getLocation = async () => {
           try {
@@ -29,6 +29,7 @@ function Home() {
           );
           setLat(pos.coords.latitude);
           setLon(pos.coords.longitude);
+          setCoordinates({lat: lat,long: lon});
           console.log("Awaited location:", pos.coords.latitude, pos.coords.longitude);
           } catch (err) {
           console.error("Geolocation error", err);
