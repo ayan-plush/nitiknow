@@ -53,7 +53,7 @@ export const get_headlines = createAsyncThunk(
     async(payload,{rejectWithValue,fulfillWithValue}) => {              
         
         try {
-           const {data} = await pyApi.post(`/scrape`,payload)
+           const {data} = await geoApi.post(`/articles`,payload)
            console.log(data);
             return fulfillWithValue(data)
         }
@@ -120,7 +120,7 @@ export const geoReducer = createSlice({
             state.loader = false;
          })
          .addCase(get_headlines.fulfilled, (state,{payload})=>{
-            state.articles = payload.scraped;
+            state.articles = payload.data;
          })
          .addCase(get_loksabha_elective.rejected, (state,{payload})=>{
             state.loader = false;

@@ -71,23 +71,24 @@ const Header = () => {
         <div className="px-5 w-full">
           <div className="h-[80px] flex justify-between items-center flex-wrap max-md:h-[50px] max-md-lg:h-[100px] text-white">
                 <div className="flex items-center justify-between w-full">
-                <Link to="/" className="flex items-center w-1/5">
-                  {/* <img className="h-[40px] text-[#fff]" src="https://litlink-frontend.onrender.com/images/LitLinkLogo.png" alt="Logo" /> */}
-                  LOGO
+                <Link  to="/" className="flex items-center h-full w-1/5">
+                  <img className="h-[80px] text-[#fff]" src="https://res.cloudinary.com/decks92gf/image/upload/v1752392220/erasebg-transformed_ooivqf.webp" alt="Logo" />
+                  {/* <MyLogo  fillColor='#FB0347'/> */}
                 </Link>
                 <div
                   onClick={() => setShowSidebar(true)}
-                  className=" w-1/5 lg:hidden md-lg:hidden xl:hidden flex justify-end items-center"
+                  className=" w-1/5 md:hidden  flex justify-end items-center"
                 >
                   <FaList className='h-[30px] w-[30px] border border-[#fff] rounded-sm cursor-pointer p-1' />
                 </div>
-                <div className='max-md:hidden w-3/5  flex items-center justify-evenly'>
-                  <Link>XYZABCD</Link>
-                  <Link to={'/my-ministers'} >XYZABCD</Link>
-                  <Link>XYZABCD</Link>
+                <div className='max-md:hidden w-3/5 uppercase flex items-center justify-evenly'>
+                <Link className={`${pathname === '/' ? 'text-[#FB0347]' : ''}`} to={'/'} >Home</Link>
+                  <Link className={`${pathname === '/about-us' ? 'text-[#FB0347]' : ''}`} >About Us</Link>
+                  <Link className={`${pathname === '/my-ministers' ? 'text-[#FB0347]' : ''}`}  to={'/my-ministers'} >My Ministers</Link>
+                  {/* <Link>XYZABCD</Link> */}
                 </div>
                 <div
-                  className=" w-1/5 relative max-lg:hidden max-md-lg:hidden lg:flex max-xl:hidden justify-end items-center"
+                  className=" w-1/5 relative  max-md:hidden flex  justify-end items-center"
                 >
                   <CiLocationOn onMouseOver={handleMouseOver} onMouseOut={handleMouseOut} className='h-[30px] w-[30px] border border-[#fff] rounded-full cursor-pointer p-1' />
                   <Popover visible={popover}/>
@@ -108,27 +109,29 @@ const Header = () => {
         />}
         {/* Sidebar Content */}
         <div
-          className={`w-[300px] z-[9999] fixed transition-all duration-200 ${!showSidebar ? '-left-[300px]' : 'left-0 top-0'} h-screen py-6 px-8 overflow-auto bg-[#312C23] md-lg:hidden`}
+          className={`w-[300px] z-[9999] fixed transition-all duration-200 ${!showSidebar ? '-left-[300px]' : 'left-0 top-0'} h-screen py-6 px-8 overflow-auto bg-[#FB0347] md-lg:hidden`}
         >
-          <div className="flex flex-col gap-6 text-[#fff3e276]">
-            <Link to="/" className="pb-[40px]"><img className="h-[40px]" src="https://litlink-frontend.onrender.com/images/LitLinkLogoLight.png" alt="Logo" /></Link>
-            <div className="flex justify-between items-center gap-3 text-[2vh] uppercase tracking-tighter font-extralight">
+          <div className="flex flex-col gap-6 text-[#000]">
+            <Link to="/" className="pb-[100px]"><img className="h-1/3" src="https://litlink-frontend.onrender.com/images/LitLinkLogoLight.png" alt="Logo" /></Link>
+            {/* <div className="flex justify-between items-center gap-3 text-[2vh] uppercase tracking-tighter font-extralight">
               <Link to="/login" className="flex items-center gap-2">Sign In</Link>
               <FaArrowAltCircleLeft onClick={() => setShowSidebar(false)} className="h-[20px] w-[20px]" />
-            </div>
-            <div className="flex items-center gap-4 text-md">
+            </div> */}
+            {/* <div className="flex items-center gap-4 pb-[100px] text-md">
               <a href="#"><FaInstagram /></a>
               <a href="#"><FaTwitter /></a>
               <a href="#"><FaWordpress /></a>
-            </div>
+            </div> */}
           </div>
 
           {/* Sidebar Links */}
-          <ul className="flex flex-col mt-5 text-[#fff3e276] gap-8 font-light uppercase text-xl">
-            <li><Link to="/" className={`${pathname === '/' ? 'text-[#ffe5be]' : ''}`}>HOME</Link></li>
-            <li><Link to="/library" className={`${pathname === '/library' ? 'text-[#ffe5be]' : ''}`}>LIBRARY</Link></li>
-            <li><Link to="/aboutus" className={`${pathname === '/aboutus' ? 'text-[#ffe5be]' : ''}`}>OUR PURPOSE</Link></li>
-            <li><Link to="/fordev" className={`${pathname === '/fordev' ? 'text-[#ffe5be]' : ''}`}>FOR DEVS</Link></li>
+          <ul className="flex flex-col mt-5 text-[#000] gap-8 font-light uppercase text-xl">
+            <li><Link to="/" className={`${pathname === '/' ? 'text-[#ffffff]' : ''}`}>HOME</Link></li>            
+            <li><Link to="/my-ministers" className={`${pathname === '/my-ministers' ? 'text-[#ffffff]' : ''}`}>MY MINISTERS</Link></li>
+            <li><Link to="/about-us" className={`${pathname === '/about-us' ? 'text-[#ffffff]' : ''}`}>ABOUT US</Link></li>
+            <li><Link >CONTACT US</Link></li>
+            {/* <li><Link to="/aboutus" className={`${pathname === '/aboutus' ? 'text-[#ffe5be]' : ''}`}>OUR PURPOSE</Link></li>
+            <li><Link to="/fordev" className={`${pathname === '/fordev' ? 'text-[#ffe5be]' : ''}`}>FOR DEVS</Link></li> */}
           </ul>
         </div>
       </div>
