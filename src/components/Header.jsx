@@ -72,7 +72,7 @@ const Header = () => {
           <div className="h-[80px] flex justify-between items-center flex-wrap max-md:h-[50px] max-md-lg:h-[100px] text-white">
                 <div className="flex items-center justify-between w-full">
                 <Link  to="/" className="flex items-center h-full w-1/5">
-                  <img className="h-[80px] text-[#fff]" src="https://res.cloudinary.com/decks92gf/image/upload/v1752392220/erasebg-transformed_ooivqf.webp" alt="Logo" />
+                  <img className=" max-md:h-[40px] md:h-[80px] text-[#fff]" src="https://res.cloudinary.com/decks92gf/image/upload/v1752392220/erasebg-transformed_ooivqf.webp" alt="Logo" />
                   {/* <MyLogo  fillColor='#FB0347'/> */}
                 </Link>
                 <div
@@ -112,7 +112,7 @@ const Header = () => {
           className={`w-[300px] z-[9999] fixed transition-all duration-200 ${!showSidebar ? '-left-[300px]' : 'left-0 top-0'} h-screen py-6 px-8 overflow-auto bg-[#FB0347] md-lg:hidden`}
         >
           <div className="flex flex-col gap-6 text-[#000]">
-            <Link to="/" className="pb-[100px]"><img className="h-1/3" src="https://litlink-frontend.onrender.com/images/LitLinkLogoLight.png" alt="Logo" /></Link>
+            <Link to="/" className="pb-[100px]"><img className="h-1/3" src="https://res.cloudinary.com/decks92gf/image/upload/v1752431634/logo-black_lbbyqh.webp" alt="Logo" /></Link>
             {/* <div className="flex justify-between items-center gap-3 text-[2vh] uppercase tracking-tighter font-extralight">
               <Link to="/login" className="flex items-center gap-2">Sign In</Link>
               <FaArrowAltCircleLeft onClick={() => setShowSidebar(false)} className="h-[20px] w-[20px]" />

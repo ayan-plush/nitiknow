@@ -6,8 +6,10 @@ const LazyImage = ({ src, alt = '', styleApplied}) => {
   return (
     <>
       {!loaded && (
-        <div className={`skeleton-box ${styleApplied}`}>
-            
+        <div className='w-full h-full'>
+          <div className={`skeleton-box ${styleApplied}`}>
+              
+          </div>
         </div>
       )}
       <img

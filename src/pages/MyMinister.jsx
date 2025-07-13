@@ -123,8 +123,10 @@ const MyMinister = () => {
                             </div>
                             :
                             <div></div>
-
                         }
+                        {/* <div className="h-[400px]"> 
+                        <div className="skeleton-box w-full h-full"></div>
+                        </div> */}
 
                     </div>
                         
